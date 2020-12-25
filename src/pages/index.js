@@ -1,12 +1,11 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
+import NavBar from '../components/navBar'
+//import {FaUserAlt} from 'react-icons/fa'
 
-export default function home(){
-
+export default function index(){
     return(
         <>
-            <h1>Oi</h1>
+          <NavBar/>      
         </>
-        
     )
 }
