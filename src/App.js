@@ -1,4 +1,3 @@
-import './styles/App.css';
 import Rotas from './routes'
 
 function App() {

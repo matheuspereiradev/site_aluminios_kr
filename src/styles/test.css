@@ -1,0 +1,30 @@
+
+.container-body{
+    width: 100%;
+    background-color: peru;
+    
+}
+
+.container-body > .left-menu{
+    width: 20%;
+    height: 100vh;
+    background-color: lawngreen;
+}
+
+.container-body > .content-right{
+    width: 80%;
+    display: inline-block;
+}
+
+.container-body > .content-right > .nav-bar{
+    width: 100%;
+    height: 45px;
+    background-color: magenta;
+    float: right;
+}
+
+.container-body > .content-right > .body{
+    width: 100%;
+    height: 45px;
+    background-color: midnightblue;
+}
