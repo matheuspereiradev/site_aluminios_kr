@@ -1,22 +1,20 @@
 import React from 'react'
 import '../styles/test.css'
 
+
 export default function test(){
     return(
       <>
-        <div className="container-body"> 
-                
-            <div className="left-menu">b</div> 
-            <div className="content-right">
-                <div className="nav-bar">
-                    a
+        <div className="card">
+            <img src="http://kagw.com/wp-content/uploads/2017/11/200x150.png"/>
+            <div className="card-body">
+                <div className="card-title">
+                    matheus  tudo o que voce precisa para sua casa dia e noite
                 </div>
-                <div className="body">
-                    c
+                <div className="card-value">
+                    <small>R$</small>120,45
                 </div>
-                <div className="body">
-                    j
-                </div>
+                <button type="submit">Comprar</button>
             </div>
         </div>
         

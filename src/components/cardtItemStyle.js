@@ -1,8 +1,11 @@
+import styled from 'styled-components'
 
+export const CardItem = styled.div`
+ 
 .card{
     width: 200px;
     min-height: 230px;
-    background-color: lawngreen;
+    background-color: #f0cbf0;
     border-radius: 8px;
 }
 
@@ -39,7 +42,15 @@
 
 }
 
-.card > .card-body > button{
+a{
+  text-decoration:none;
+  color:black;
+}
+
+a:visited{
+  text-decoration:none;
+}
+.btn-buy{
     height: 30px;
     width:100%;
     border-radius: 4px;
@@ -52,6 +63,26 @@
     transition: background-color 0.2s;
 }
 
-.card > .card-body > button:hover{
+.btn-buy:hover{
     background: #1B6E42;
 }
+
+.btn-favorite{
+    height: 30px;
+    width:30px;
+    border-radius: 100%;
+    border: 0;
+    cursor: pointer;
+    color: #DE163F;
+    background-color: #fff;
+    transition: background-color 0.2s;
+    padding:-4px;
+}
+
+.btn-favorite:hover{
+    color: #AB2800;
+    background-color: #ffeded;
+}
+
+`
+
