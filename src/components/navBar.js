@@ -12,10 +12,7 @@ export default function NavBarPadrao(){
                     </div>
                     
                 </div>
-                <input type="text" placeholder="O que você procura?"/>
-                <button className="confirm-button">
-                    Buscar
-                </button>
+                
                 <div className="nav-btn">
                     <label className="nav-check">
                     <span></span>

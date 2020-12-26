@@ -1,28 +1,22 @@
 import styled from 'styled-components'
 
 export const StyledNavBar = styled.div`
-    * {
-    box-sizing: border-box;
-    }
-
-    body {
-    margin: 0px;
-    }
-
+    
     .nav {
-    height: 50px;
-    width: 100%;
+    height: 46px;
+    width: 80%;
     background-color: #6D00AB;
     position: relative;
+    float:right;
     }
 
     .nav > .nav-header {
-    display: inline;
+    display: none;
     }
 
     .nav > .nav-header > .nav-title {
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     color: #fff;
     padding: 10px 10px 10px 10px;
     }
@@ -31,41 +25,10 @@ export const StyledNavBar = styled.div`
     display: none;
     }
 
-
-    input{
-        border:none;
-        font-size: 16px;
-        background-color:#B84AF7;
-        color: #333;
-        height: 50px;
-        width: 400px;
-        padding:5px;
-        margin:0px;
-    }
-
-    button{
-        height: 50px;
-        width:140px;
-        border: 0;
-        cursor: pointer;
-        background: #8937B9;
-        color: #fff;
-        font-weight: 800;
-
-        justify-content: center;
-        align-items: center;
-
-        transition: background-color 0.2s;
-    }
-
-    button:hover{
-        background: #4C0078;
-    }
-
     .nav > .nav-links {
     display: inline;
     float: right;
-    font-size: 16px;
+    font-size: 15px;
     }
 
     .nav > .nav-links > a {
@@ -83,13 +46,18 @@ export const StyledNavBar = styled.div`
     display: none;
     }
 
-    @media(max-width:900px){
-        input,button{
-            display:none;
-        }
-    }
+  
 
     @media (max-width:600px) {
+
+    .nav{
+        width:100%
+    }    
+
+    .nav > .nav-header {
+    display: inline;
+    }
+
     .nav > .nav-btn {
         display: inline-block;
         position: absolute;
@@ -99,7 +67,7 @@ export const StyledNavBar = styled.div`
     .nav > .nav-btn > label {
         display: inline-block;
         width: 50px;
-        height: 50px;
+        height: 46px;
         padding: 13px;
     }
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
@@ -109,7 +77,7 @@ export const StyledNavBar = styled.div`
     .nav > .nav-btn > label > span {
         display: block;
         width: 25px;
-        height: 10px;
+        height: 4px;
         border-top: 2px solid #eee;
     }
     .nav > .nav-links {
@@ -120,7 +88,7 @@ export const StyledNavBar = styled.div`
         height: 0px;
         transition: all 0.3s ease-in;
         overflow-y: hidden;
-        top: 50px;
+        top: 0px;
         left: 0px;
     }
     .nav > .nav-links > a {
