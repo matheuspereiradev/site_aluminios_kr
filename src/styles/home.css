@@ -1,25 +1,18 @@
 
-.left { 
-    width: 17%;
-    float: left;
-}
-
-.sp{
-    overflow-y: scroll;
-    width: 100%;
+.page{
+    display: grid;
+    grid-template-columns: 17% 83%;
 }
 
 #menu {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
-    width: 17%;
+    width: 100%;
     font-size: 12px;
     background-color: #8937B9; 
-    position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
 }
 
 #menu li {
@@ -42,7 +35,6 @@
 
 #menu li a.selected {
     position: relative;
-    width: 100%;
     background-color: #4C0078;
 }
 
@@ -82,10 +74,9 @@
     
 .nav {
     height: 46px;
-    width: 83%;
+    width: 100%;
     background-color: #6D00AB;
     position: relative;
-    float:right;
 }
 
 .nav > .nav-header {
@@ -132,14 +123,13 @@
 
 .main {
     position: relative;
-    float:right;
     background-color:#FFE6FF;
     height: 92vh;
     color:black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 83%;
+    width: 100%;
 }
 
 .content-body{
@@ -160,6 +150,7 @@
     background-color:#ccc;
     width:100%;
     height:50px;
+    display: flex;
 }
 
 @media(max-width:740px){

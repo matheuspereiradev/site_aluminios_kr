@@ -1,5 +1,6 @@
 import React from 'react'
 import {CardItem} from './cardtItemStyle'
+import {Link} from 'react-router-dom'
 
 export default function cardItem(props){
     return(
@@ -15,7 +16,7 @@ export default function cardItem(props){
                         <div className="card-value">
                             <small>R$</small>{props.value}
                         </div>
-                        <a href={props.link}><button className="btn-buy">Adicionar ao carrinho</button></a>
+                        <Link to={props.link}><button className="btn-buy">Adicionar ao carrinho</button></Link>
                     </div>
 
                 </div>
