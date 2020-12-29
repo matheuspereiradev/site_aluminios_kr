@@ -1,7 +1,7 @@
 import React from 'react'
 import {SearchBox} from './SearchBoxStyle'
 
-export default function searchBox(){
+export default function (){
     return(
         <SearchBox>
                 <input type="text" placeholder="O que você procura?"/>

@@ -1,9 +1,10 @@
-
+/*configuração geral da pagina*/
 .page{
     display: grid;
     grid-template-columns: 17% 83%;
 }
 
+/*menu lateral*/
 #menu {
     list-style-type: none;
     margin: 0px;
@@ -18,24 +19,26 @@
 #menu li {
     display: block;
     position: relative;
-    z-index: 2;    
+    z-index: 2; 
+     
 }
 
 
-#menu li a:hover {
+#menu li .item:hover {
     background-color:#B84AF7;
 }
 
-#menu li a:active {
+#menu li .item:active {
     background-color:#B84AF7;
 }
 
 
-#menu li a { color: #fff; text-decoration: none; display: block; padding: 7px 15px;}
+#menu li .item { color: #fff; display: block; padding: 7px 15px;cursor: pointer;  }
 
-#menu li a.selected {
+#menu li .selected {
     position: relative;
     background-color: #4C0078;
+    display: block; padding: 7px 15px;cursor: pointer;color: #fff;
 }
 
 #menu li.headerTitle {
@@ -60,7 +63,7 @@
     font-weight:600;
 }
 
-    
+/*navBar superior*/    
 .block {
     min-height: 262px;
     background-color: #f4f4f4;
@@ -115,12 +118,13 @@
     display: none;
 }
  
+/*grid de produtos na exibiçao principal*/
 .products-grid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 5px;
 }
-
+/*conteudo da pagina*/
 .main {
     position: relative;
     background-color:#FFE6FF;
@@ -144,13 +148,24 @@
     margin-top: 20px;
 }
 
-  
-  
+/*rodape*/
 #footer{
     background-color:#ccc;
     width:100%;
     height:50px;
     display: flex;
+}
+
+select{
+    width: 300px;
+}
+
+/*gerericos*/
+
+.align-center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 @media(max-width:740px){
@@ -168,6 +183,22 @@
     .main{
         width: 100%;
     }
+}
+/*configurações de formulario*/
+
+form{
+
+}
+
+form > .input-text{
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+    background: #F5F8FA;
+  border: 1px solid #D3E2E5;
+  border-radius: 4px;
+  outline: none;
+  color: #2a2e30;
 }
 
 @media (max-width:400px) {

@@ -2,7 +2,7 @@ import React from 'react'
 import {CardItem} from './cardtItemStyle'
 import {Link} from 'react-router-dom'
 
-export default function cardItem(props){
+export default function (props){
     return(
         <CardItem>
             

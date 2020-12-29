@@ -2,7 +2,7 @@ import React from 'react'
 import {BtnLink} from './buttonCategory'
 import {FaRegAngry} from 'react-icons/fa'
 
-export function ButtonQuadrado(props){
+export default function (props){
     return(
         <>
             <BtnLink>
