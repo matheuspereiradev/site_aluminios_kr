@@ -26,11 +26,12 @@ export default function ProductRegister(){
   },[])
 
   function handleImage(event) {
-    if(!event.target.files){
+    
+    if(!event.target.files[0]){
       return;
     }
 
-    setImagem(event.target.files)
+    setImagem(event.target.files[0])
   }
 
   async function handleSubmit(event) {
@@ -44,16 +45,20 @@ export default function ProductRegister(){
       setAviso(aviso,{"mensagem":"Digite um nome!", "status":"error"})
     }
 
+    const data = new FormData();
+    data.append('nome',nome);
+    data.append('descricao',descricao);
+    data.append('categoria',categoria);
+    data.append('preco',preco);
+    data.append('thumbnail',imagem)
 
-    const dados = {'nome':nome
+    /*const dados = {'nome':nome
     ,'descricao':descricao
     ,'categoria':categoria
     ,'preco':preco
-    ,"thumbnail":imagem}
+    ,'thumbnail':imagem}*/
     
-    const res = await api.post('http://localhost:8081/products/register',dados);
-
-    console.log(res)
+    const res = await api.post('http://localhost:8081/products/register',data);
   }
 
     return(
@@ -108,7 +113,7 @@ export default function ProductRegister(){
                               )
                             }))}
                           </select>
-                          <input type="file" onChange={handleImage} />    
+                          <input type="file" onChange={handleImage} id="thumbnail"/>    
                           <button type="submit">Salvar</button>
                       </form>
                       
