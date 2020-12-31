@@ -10,6 +10,14 @@ export default function ProductRegister(){
   const [descricao,setDescricao] = useState('');
   const [preco,setPreco] = useState('0');
   const [categoria,setCategoria] = useState(0);
+  const [imagem,setImagem] = useState(null);
+  const [aviso,setAviso] = useState(null)
+  /*
+  aviso{
+    mensagem:"",
+    status:""[error|success]
+  }
+  */
 
   useEffect(()=>{
     api.get('categories/all').then(cat=>{
@@ -17,11 +25,35 @@ export default function ProductRegister(){
     })
   },[])
 
-  function handleSubmit(event) {
+  function handleImage(event) {
+    if(!event.target.files){
+      return;
+    }
+
+    setImagem(event.target.files)
+  }
+
+  async function handleSubmit(event) {
     event.preventDefault();
-    console.log(nome)
-    console.log(descricao)
-    console.log(categoria)
+
+    if(categoria==0){
+      setAviso(aviso,{"mensagem":"Selecione uma categoria", "status":"error"})
+    }
+
+    if(nome===''){
+      setAviso(aviso,{"mensagem":"Digite um nome!", "status":"error"})
+    }
+
+
+    const dados = {'nome':nome
+    ,'descricao':descricao
+    ,'categoria':categoria
+    ,'preco':preco
+    ,"thumbnail":imagem}
+    
+    const res = await api.post('http://localhost:8081/products/register',dados);
+
+    console.log(res)
   }
 
     return(
@@ -60,10 +92,11 @@ export default function ProductRegister(){
                       <form onSubmit={handleSubmit}>
                           <h1>Cadastro de produtos</h1>
                           <hr/>
+                          
                           <label>Nome do produto:</label>
                           <input onChange={event => { setNome(event.target.value) }} value={nome} className="input-text" type="text"/>
                           <label>Descrição do produto:</label><br/>
-                          <textarea onChange={event=>{ setDescricao(event.target.value)}} rows="5" cols="135">{descricao}</textarea>
+                          <textarea value={descricao} onChange={event=>{ setDescricao(event.target.value)}} rows="5" cols="135"/>
                           <label>Preço:</label>
                           <input onChange={event => { setPreco(event.target.value) }} value={preco} className="input-text" type="text"/>
                           <label>Categoria:</label><br/>
@@ -75,7 +108,7 @@ export default function ProductRegister(){
                               )
                             }))}
                           </select>
-
+                          <input type="file" onChange={handleImage} />    
                           <button type="submit">Salvar</button>
                       </form>
                       

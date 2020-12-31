@@ -169,6 +169,8 @@ select{
 }
 
 @media(max-width:740px){
+    
+
     #menu{
         display: none;
     }    
@@ -203,6 +205,10 @@ form > .input-text{
 
 @media (max-width:400px) {
 
+    .page{
+        display: flex;
+    }
+    
     .nav > .nav-btn {
         display: inline-block;
         position: absolute;
