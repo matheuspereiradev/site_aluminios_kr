@@ -4,6 +4,7 @@ import home from './pages/index'
 import test from './pages/test'
 import viewProduct from './pages/viewProduct'
 import productRegister from './pages/admin_space/crud_product/product_register'
+import productList from './pages/admin_space/crud_product/product_list'
 
 function Routes(){
     return(
@@ -13,7 +14,8 @@ function Routes(){
                 <Route path="/test" component={test}/>
                 <Route path="/detalhes/:id" component={viewProduct}/>
 
-                <Route path="/produto/cadastrar" component={productRegister}/>
+                <Route path="/admin/produto/cadastrar" component={productRegister}/>
+                <Route path="/admin/produto" component={productList}/>
             </Switch>
         </BrowserRouter>
 

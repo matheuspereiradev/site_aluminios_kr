@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { FaShoppingCart, FaUserAlt } from 'react-icons/fa'
 import '../../../styles/home.css'
 import api from '../../../services/api'
+import TopBar from '../../../components/topBarAdmin'
+import LeftMenu from '../../../components/leftMenuAdmin'
+import { Redirect } from 'react-router-dom'
 
 export default function ProductRegister(){
 
@@ -11,7 +13,6 @@ export default function ProductRegister(){
   const [preco,setPreco] = useState('0');
   const [categoria,setCategoria] = useState(0);
   const [imagem,setImagem] = useState(null);
-  const [aviso,setAviso] = useState(null)
   /*
   aviso{
     mensagem:"",
@@ -37,60 +38,26 @@ export default function ProductRegister(){
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if(categoria==0){
-      setAviso(aviso,{"mensagem":"Selecione uma categoria", "status":"error"})
+      const data = new FormData();
+      data.append('nome',nome);
+      data.append('descricao',descricao);
+      data.append('categoria',categoria);
+      data.append('preco',preco);
+      data.append('thumbnail',imagem)
+      const res = await api.post('http://localhost:8081/products/register',data);
+
+    if (res.status === 200){
+      alert('cadastrado com sucesso');
     }
-
-    if(nome===''){
-      setAviso(aviso,{"mensagem":"Digite um nome!", "status":"error"})
-    }
-
-    const data = new FormData();
-    data.append('nome',nome);
-    data.append('descricao',descricao);
-    data.append('categoria',categoria);
-    data.append('preco',preco);
-    data.append('thumbnail',imagem)
-
-    /*const dados = {'nome':nome
-    ,'descricao':descricao
-    ,'categoria':categoria
-    ,'preco':preco
-    ,'thumbnail':imagem}*/
-    
-    const res = await api.post('http://localhost:8081/products/register',data);
   }
-
+    
     return(
       <div className="page">
+        <LeftMenu/> 
         <div>
-          <ul id="menu">
-            <li className="headerTitle">VComerce</li>
-            <li className="legend">Opções:</li>  
-                <li><div className="item">oi</div></li>
-          </ul>
-        </div>  
-        <div>
-              <div className="nav">
-                <div className="nav-header">
-                            <div className="nav-title">
-                                VCommerce
-                            </div>
-                            
-                        </div>
-                        
-                        <div className="nav-btn">
-                            <label className="nav-check">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            </label>
-                        </div>
-                        <div className="nav-links">
-                            <a href="https://codepen.io/jo_Geek/"><FaShoppingCart/> Carrinho</a>
-                            <a href="https://jsfiddle.net/user/jo_Geek/"><FaUserAlt/> Login</a>
-                        </div>
-              </div>
+              
+            <TopBar/>
+              
               <div className="main">
                   <div className="content">
                     <div className="content-body">

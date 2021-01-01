@@ -72,7 +72,7 @@ export default function Index(){
                         {products && (
                             products.map((produto)=>{
                               return(
-                                <CardItem key={produto.uuid} name={produto.nome} value={produto.preco} link={`datalhes/${produto.uuid}`} img={produto.thumbnail}/>
+                                <CardItem key={produto.uuid} name={produto.nome} value={produto.preco} link={`datalhes/${produto.uuid}`} img={`http://localhost:8081/uploads/${produto.thumbnail}`}/>
                               )
                             })
                             
