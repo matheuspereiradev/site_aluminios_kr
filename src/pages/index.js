@@ -9,6 +9,8 @@ export default function Index(){
    
    const [categories,setCategories] = useState([]);
    const [products, setproducts] = useState([]);
+   const [filterProducts,setFilterProducts] =  useState([]);
+
    useEffect(()=>{
       api.get('categories/all').then(cat=>{
          setCategories(cat.data) 
@@ -16,12 +18,13 @@ export default function Index(){
 
       api.get('products/all').then(pro=>{
         setproducts(pro.data);
+        setFilterProducts(pro.data)
       })
    },[])
 
    function filtraCategoria(id){
-      setproducts(products.filter((elemnt)=>{
-        return elemnt.idCategoria === id;
+      setFilterProducts(products.filter((elemnt)=>{
+        return elemnt.categoria.idCategoria === id;
       }))
    }
    
@@ -69,8 +72,8 @@ export default function Index(){
                       <center><SearchBox/></center>
                       <br/>
                       <div className="products-grid">
-                        {products && (
-                            products.map((produto)=>{
+                        {filterProducts && (
+                            filterProducts.map((produto)=>{
                               return(
                                 <CardItem key={produto.id} name={produto.nome} value={produto.preco} link={`datalhes/${produto.id}`} img={`http://localhost:8081/uploads/${produto.thumbnail}`}/>
                               )

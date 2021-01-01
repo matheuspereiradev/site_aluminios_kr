@@ -5,6 +5,7 @@ import test from './pages/test'
 import viewProduct from './pages/viewProduct'
 import productRegister from './pages/admin_space/crud_product/product_register'
 import productList from './pages/admin_space/crud_product/product_list'
+import categoryList from './pages/admin_space/crud_category/category_list'
 
 function Routes(){
     return(
@@ -17,6 +18,9 @@ function Routes(){
                 <Route path="/admin/produto/cadastrar" component={productRegister}/>
                 <Route path="/admin/produto/editar/:id" component={productRegister}/>
                 <Route path="/admin/produto" component={productList}/>
+
+                <Route path="/admin/categorias" component={categoryList}/>
+                
             </Switch>
         </BrowserRouter>
 

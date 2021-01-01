@@ -71,10 +71,9 @@ export default function ProductRegister(){
         }
       }else{
         data.append('uuid',uuid);
-        console.log(data)
 
-        const res = await api.put('http://localhost:8081/products/edit',data);
-        if (res.status === 200){
+        const res2 = await api.put('http://localhost:8081/products/edit',data);
+        if (res2.status === 200){
           alert('Editado com sucesso');
         }
       }
