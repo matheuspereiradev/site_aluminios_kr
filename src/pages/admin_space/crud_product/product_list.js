@@ -14,6 +14,24 @@ export default function ProductList(){
         setProdutos(pro.data);
       })
   },[])
+
+
+  
+    
+  function excluirProduto(id){
+    try{
+      api.delete(`products/delete/${id}`).then(res=>{
+        setProdutos(produtos.filter((pro)=>{
+          return pro.id !== id
+        }))
+      })
+    }catch(e){
+      alert(e)
+    }
+   
+
+
+  }
  
     return(
         <div className="page">
@@ -47,7 +65,7 @@ export default function ProductList(){
                                         <td data-label="categoria">{produto.quantidade}</td>
                                         <td data-label="categoria">{produto.categoria.nomeCategoria}</td>
                                         <td data-label="edit"><button>Editar</button></td>
-                                        <td data-label="delete"><button>Excluir</button></td>
+                                        <td data-label="delete" onClick={()=>{excluirProduto(produto.id)}}><button>Excluir</button></td>
                                 </tr>
                               )
                             })

@@ -3,7 +3,6 @@ import '../../../styles/home.css'
 import api from '../../../services/api'
 import TopBar from '../../../components/topBarAdmin'
 import LeftMenu from '../../../components/leftMenuAdmin'
-import { Redirect } from 'react-router-dom'
 
 export default function ProductRegister(){
 
@@ -38,11 +37,12 @@ export default function ProductRegister(){
   async function handleSubmit(event) {
     event.preventDefault();
 
+      const valor = preco.replace(",",".");
       const data = new FormData();
       data.append('nome',nome);
       data.append('descricao',descricao);
       data.append('categoria',categoria);
-      data.append('preco',preco);
+      data.append('preco',valor);
       data.append('thumbnail',imagem)
       const res = await api.post('http://localhost:8081/products/register',data);
 
