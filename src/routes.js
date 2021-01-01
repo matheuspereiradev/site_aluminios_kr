@@ -15,6 +15,7 @@ function Routes(){
                 <Route path="/detalhes/:id" component={viewProduct}/>
 
                 <Route path="/admin/produto/cadastrar" component={productRegister}/>
+                <Route path="/admin/produto/editar/:id" component={productRegister}/>
                 <Route path="/admin/produto" component={productList}/>
             </Switch>
         </BrowserRouter>

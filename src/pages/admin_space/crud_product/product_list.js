@@ -64,7 +64,7 @@ export default function ProductList(){
                                         <td data-label="preco">{produto.preco}</td>
                                         <td data-label="categoria">{produto.quantidade}</td>
                                         <td data-label="categoria">{produto.categoria.nomeCategoria}</td>
-                                        <td data-label="edit"><button>Editar</button></td>
+                                        <td data-label="edit"><Link to={`/admin/produto/editar/${produto.id}`}><button>Editar</button></Link></td>
                                         <td data-label="delete" onClick={()=>{excluirProduto(produto.id)}}><button>Excluir</button></td>
                                 </tr>
                               )

@@ -3,9 +3,13 @@ import '../../../styles/home.css'
 import api from '../../../services/api'
 import TopBar from '../../../components/topBarAdmin'
 import LeftMenu from '../../../components/leftMenuAdmin'
+import { useParams } from 'react-router-dom'
 
 export default function ProductRegister(){
 
+  let {id} = useParams();
+
+  const [uuid, setUUID] = useState('')
   const [categorias,setCategorias]=useState([])
   const [nome,setNome]=useState('');
   const [descricao,setDescricao] = useState('');
@@ -18,6 +22,21 @@ export default function ProductRegister(){
     status:""[error|success]
   }
   */
+
+  useEffect(()=>{
+    if(id!== undefined){
+      api.get(`products/find/${id}`).then(
+        result=>{
+          setUUID(id);
+          setNome(result.data[0].nome);
+          setDescricao(result.data[0].descricao);
+          setPreco(result.data[0].preco);
+          setCategoria(result.data[0].categoria.idCategoria);
+        }
+      )
+    }
+    
+  },[id])
 
   useEffect(()=>{
     api.get('categories/all').then(cat=>{
@@ -44,11 +63,24 @@ export default function ProductRegister(){
       data.append('categoria',categoria);
       data.append('preco',valor);
       data.append('thumbnail',imagem)
-      const res = await api.post('http://localhost:8081/products/register',data);
 
-    if (res.status === 200){
-      alert('cadastrado com sucesso');
-    }
+      if(uuid===''){
+        const res = await api.post('http://localhost:8081/products/register',data);
+        if (res.status === 200){
+          alert('cadastrado com sucesso');
+        }
+      }else{
+        data.append('uuid',uuid);
+        console.log(data)
+
+        const res = await api.put('http://localhost:8081/products/edit',data);
+        if (res.status === 200){
+          alert('Editado com sucesso');
+        }
+      }
+      
+
+    
   }
     
     return(
