@@ -4,6 +4,7 @@ import api from '../../../services/api'
 import TopBar from '../../../components/topBarAdmin'
 import LeftMenu from '../../../components/leftMenuAdmin'
 import { useParams } from 'react-router-dom'
+import { FaSave } from 'react-icons/fa'
 
 export default function CategoryRegister(){
 
@@ -60,8 +61,9 @@ export default function CategoryRegister(){
                           <label>Nome da categoria:</label>
                           <input onChange={event => { setNome(event.target.value) }} value={nome} className="input-text" type="text"/>
                           <label>Descrição do produto:</label><br/>
-                          <textarea value={descricao} onChange={event=>{ setDescricao(event.target.value)}} rows="5" cols="135"/>
-                          <button type="submit">Salvar</button>
+                          <textarea value={descricao} onChange={event=>{ setDescricao(event.target.value)}} rows="5" className="text-area"/>
+                          <br/><br/>
+                          <button type="submit"className="btn btn-block green-button"><FaSave/> Salvar</button>
                       </form>
                       
                     </div>
