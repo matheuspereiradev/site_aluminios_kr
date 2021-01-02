@@ -15,6 +15,18 @@ export default function CategoryList(){
       })
   },[])
 
+  function excluirCategoria(id){
+    try{
+      api.delete(`categories/delete/${id}`).then(res=>{
+        setCategoria(categoria.filter((cat)=>{
+          return cat.id !== id
+        }))
+      })
+    }catch(e){
+      alert(e)
+    }
+  }
+
     return(
         <div className="page">
         <LeftMenu/> 
@@ -24,7 +36,7 @@ export default function CategoryList(){
               <div className="main">
                   <div className="content">
                     <div className="content-body">
-                    <Link to="#"><button>cadastrar nova</button></Link>
+                    <Link to="/admin/categorias/cadastrar"><button>cadastrar nova</button></Link>
                     <table>
                     <caption>Categorias</caption>
                     <thead>
@@ -45,7 +57,7 @@ export default function CategoryList(){
                                         <td data-label="nome">{categoria.nome}</td>
                                         <td data-label="descricao">{categoria.descricao}</td>
                                         <td data-label="edit"><button>Editar</button></td>
-                                        <td data-label="delete"><button>Excluir</button></td>
+                                        <td data-label="delete"><button onClick={()=>{excluirCategoria(categoria.id)}}>Excluir</button></td>
                                 </tr>
                               )
                             })

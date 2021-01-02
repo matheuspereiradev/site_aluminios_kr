@@ -28,9 +28,6 @@ export default function ProductList(){
     }catch(e){
       alert(e)
     }
-   
-
-
   }
  
     return(

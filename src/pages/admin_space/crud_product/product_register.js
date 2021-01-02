@@ -63,16 +63,17 @@ export default function ProductRegister(){
       data.append('categoria',categoria);
       data.append('preco',valor);
       data.append('thumbnail',imagem)
+      console.log(data)
 
       if(uuid===''){
-        const res = await api.post('http://localhost:8081/products/register',data);
+        const res = await api.post('/products/register',data);
         if (res.status === 200){
           alert('cadastrado com sucesso');
         }
       }else{
         data.append('uuid',uuid);
 
-        const res2 = await api.put('http://localhost:8081/products/edit',data);
+        const res2 = await api.put('/products/edit',data);
         if (res2.status === 200){
           alert('Editado com sucesso');
         }
