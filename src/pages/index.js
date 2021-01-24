@@ -42,7 +42,6 @@ export default function Index(){
                     </li>
                 )
             }))}
-            <li><div className="selected">OOOOO</div></li>
           </ul>
         </div>  
         <div>

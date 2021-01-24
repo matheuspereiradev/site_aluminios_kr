@@ -57,24 +57,39 @@ export default function ProductRegister(){
   async function handleSubmit(event) {
     event.preventDefault();
 
-      const valor = preco.replace(",",".");
-      const data = new FormData();
+      
+      /*const data = new FormData();
       data.append('nome',nome);
       data.append('descricao',descricao);
       data.append('categoria',categoria);
       data.append('preco',valor);
-      data.append('thumbnail',imagem)
-      console.log(data)
-
+      data.append('thumbnail',imagem)*/
+      const valor = preco.replace(",",".");
+      const dataForm = new FormData();
+      dataForm.append('thumbnail',imagem)
       if(uuid===''){
-        const res = await api.post('/products/register',data);
+        const data = {
+          "nome": nome,
+          "descricao":descricao,
+          "categoria":categoria,
+          "preco":valor,
+        }
+
+        dataForm.append('data',data);
+        const res = await api.post('/products/register',dataForm);
         if (res.status === 200){
           alert('cadastrado com sucesso');
         }
       }else{
-        data.append('uuid',uuid);
-
-        const res2 = await api.put('/products/edit',data);
+        const data = {
+          "nome": nome,
+          "descricao":descricao,
+          "categoria":categoria,
+          "preco":valor,
+          "uuid":uuid,
+        }
+        dataForm.append('data',data);
+        const res2 = await api.put('/products/edit',dataForm);
         if (res2.status === 200){
           alert('Editado com sucesso');
         }

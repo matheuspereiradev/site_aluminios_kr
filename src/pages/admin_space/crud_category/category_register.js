@@ -29,17 +29,14 @@ export default function CategoryRegister(){
   async function handleSubmit(event) {
     event.preventDefault();
 
-      const dados = new FormData();
-      
-      dados.append('nome',nome);
-      dados.append('descricao',descricao);
-
-    console.log(dados.get('nome'));
-    console.log(descricao)
-        const res = await api.post('/categories/register',dados);
-        if (res.status === 200){
-          alert('cadastrado com sucesso');
-        }
+      const data = {
+        "nome":nome,
+        "descricao":descricao
+      }
+      const res = await api.post('/categories/register',data);
+      if (res.status === 200){
+        alert('cadastrado com sucesso');
+      }
       
           
   }
