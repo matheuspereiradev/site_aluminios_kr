@@ -3,7 +3,7 @@ import '../../../styles/home.css'
 import api from '../../../services/api'
 import TopBar from '../../../components/topBarAdmin'
 import LeftMenu from '../../../components/leftMenuAdmin'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect } from 'react-router-dom'
 import { FaSave } from 'react-icons/fa'
 
 export default function CategoryRegister(){
@@ -24,19 +24,32 @@ export default function CategoryRegister(){
     }
     
   },[id])
-
+  
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-      const data = {
-        "nome":nome,
-        "descricao":descricao
+      if (id === undefined){
+        const data = {
+          "nome":nome,
+          "descricao":descricao
+        }
+        const res = await api.post('/categories/register',data);
+        if (res.status === 200){
+          alert('cadastrado com sucesso');
+        }
+      }else{
+        const data = {
+          "id":id,
+          "nome":nome,
+          "descricao":descricao
+        }
+        const res = await api.put('/categories/edit',data);
+        if (res.status === 200){
+          alert('editado com sucesso');
+        }
       }
-      const res = await api.post('/categories/register',data);
-      if (res.status === 200){
-        alert('cadastrado com sucesso');
-      }
+      
       
           
   }

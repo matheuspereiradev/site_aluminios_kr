@@ -22,6 +22,7 @@ function Routes(){
 
                 <Route path="/admin/categorias" exact component={categoryList}/>
                 <Route path="/admin/categorias/cadastrar" component={categoryRegister}/>
+                <Route path="/admin/categorias/editar/:id" component={categoryRegister}/>
                 
                 
             </Switch>

@@ -57,7 +57,7 @@ export default function CategoryList(){
                                         <td data-label="Cód">{categoria.id}</td>
                                         <td data-label="nome">{categoria.nome}</td>
                                         <td data-label="descrição">{categoria.descricao}</td>
-                                        <td data-label="editar"><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></td>
+                                        <td data-label="editar"><Link to={`/admin/categorias/editar/${categoria.id}`}><button className="btn btn-block btn-sm blue-button"><FaEdit/> Editar</button></Link></td>
                                         <td data-label="excluir"><button className="btn btn-block btn-sm red-button" onClick={()=>{excluirCategoria(categoria.id)}}><FaTrash/> Excluir</button></td>
                                 </tr>
                               )
