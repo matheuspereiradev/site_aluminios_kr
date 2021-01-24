@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import {TopBar} from './topBarAdminStyle'
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa'

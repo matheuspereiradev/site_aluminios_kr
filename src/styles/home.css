@@ -309,26 +309,7 @@ select{
     justify-content:center;
 }
 
-@media(max-width:740px){
-    
-    .page{
-        display: grid;
-        grid-template-columns: 100%;
-    }
 
-    #menu{
-        display: none;
-    }    
-       
-
-    .nav > .nav-header {
-        display: inline;
-    }
-
-    .main{
-        width: 100%;
-    }
-}
 /*row*/
 .row{
     display: inline-flex;
@@ -379,9 +360,14 @@ select{
     padding: 3px;
 }
 
+.margin-left-5{
+    margin-left: 5px;
+}
+
 /*configurações de formulario*/
 
 .input-text{
+    
     height: 30px;
     width: 100%;
     margin-top: 5px;
@@ -393,26 +379,94 @@ select{
 }
 
 .text-area{
-    width: 100%;
+    width: 99%;
     background: #F5F8FA;
     border: 1px solid #999497;
     border-radius: 5px;
+    padding: 5px;
     outline: none;
-    color: #5C8599;
+    color: #000000;
 }
 
 .select-box{
     width: 100%;
-    height: 30px;
+    height: 35px;
     background: #F5F8FA;
     border: 1px solid #999497;
-    border-radius: 2px;
+    border-radius: 5px 5px 0px 0px;
     outline: none;
-    color: #5C8599;
+    margin-top: 5px;
+    color: #000000;
 }
-@media (max-width:400px) {
 
+/*input file*/
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
     
+    opacity: 0;   
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 12px;
+    /* 20px */
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    border-radius: 4px;
+    margin-top: 4px;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+
+/* style 1 */
+
+.inputfile-1 + label {
+    color: #f1e5e6;
+    background-color: #d3394c;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+    background-color: #722040;
+}
+
+@media (max-width:400px) {
     
     .nav > .nav-btn {
         display: inline-block;
@@ -457,5 +511,66 @@ select{
     .nav > #nav-check:checked ~ .nav-links {
         height: calc(100vh - 50px);
         overflow-y: auto;
+    }
+}
+@media(max-width:740px){
+    .row{
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .col-10{
+        width: 100%;
+    }
+
+    .col-20{
+        width: 100%;
+    }
+
+    .col-30{
+        width: 100%;
+    }
+
+    .col-40{
+        width: 100%;
+    }
+
+    .col-50{
+        width: 100%;
+    }
+
+    .col-60{
+        width: 100%;
+    }
+    
+    .col-70{
+        width: 100%;
+    }
+
+    .col-80{
+        width: 100%;
+    }
+
+    .col-90{
+        width: 100%;
+    }
+    
+    .page{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    #menu{
+        display: none;
+    }    
+       
+
+    .nav > .nav-header {
+        display: inline;
+    }
+
+    .main{
+        width: 100%;
     }
 }

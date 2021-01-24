@@ -4,7 +4,7 @@ import api from '../../../services/api'
 import TopBar from '../../../components/topBarAdmin'
 import LeftMenu from '../../../components/leftMenuAdmin'
 import { useParams } from 'react-router-dom'
-import {FaSave} from 'react-icons/fa'
+import {FaImage, FaSave, FaUpload} from 'react-icons/fa'
 
 export default function ProductRegister(){
 
@@ -112,30 +112,54 @@ export default function ProductRegister(){
                       <form onSubmit={handleSubmit}>
                           <h1>Cadastro de produtos</h1>
                           <hr/>
-                          
-                          <label>Nome do produto:</label>
-                          <input onChange={event => { setNome(event.target.value) }} value={nome} className="input-text" type="text"/>
-                          <label>Descrição do produto:</label><br/>
-                          <textarea value={descricao} onChange={event=>{ setDescricao(event.target.value)}} className="text-area" rows="5"/>
+
+                          <div className="row">
+                           <div className="col-70">
+                              <label>Nome do produto:</label>
+                              <input onChange={event => { setNome(event.target.value) }} value={nome} className="input-text" type="text"/>
+                              <label>Descrição do produto:</label><br/>
+                              <textarea value={descricao} onChange={event=>{ setDescricao(event.target.value)}} className="text-area" rows="5"/>
+                              <div className="row">
+                                <div className="col-30">
+                                  <label>Preço:</label>
+                                  <input onChange={event => { setPreco(event.target.value) }} value={preco} className="input-text" type="text"/>
+                                </div>
+                                <div className="col-70 margin-left-5">
+                                  <label>Categoria:</label><br/>
+                                  <select className="select-box" id="categorias" value={categoria} onChange={event=>{ setCategoria(event.target.value)}}>
+                                    <option value="0">Selecione uma categoria</option>
+                                    {categorias && (categorias.map(cat=>{
+                                      return(
+                                        <option key={cat.id} value={cat.id}>{cat.nome}</option>
+                                      )
+                                    }))}
+                                  </select>
+                                </div>
+                              </div>
+                            </div> 
+                            <div className="col-30 margin-left-5">
+                                 <img src="https://site112.com/img/200x200.png"/> <br/> 
+                                 <label>     
+                                  <input type="file" name="thumbnail" onChange={handleImage} id="thumbnail" className="inputfile inputfile-1" />
+                                  
+                                  <i><FaImage/></i> 
+                                  <span> Selecione um arquivo&hellip;</span>
+                                  </label> 
+                              
+                            </div>
+                      </div> 
+
+                                 
                           <div className="row">
                             <div className="col-30">
-                              <label>Preço:</label>
-                              <input onChange={event => { setPreco(event.target.value) }} value={preco} className="input-text" type="text"/>
                             </div>
-                            <div className="col-70">
-                              <label>Categoria:</label><br/>
-                              <select className="select-box" id="categorias" value={categoria} onChange={event=>{ setCategoria(event.target.value)}}>
-                                <option value="0">Selecione uma categoria</option>
-                                {categorias && (categorias.map(cat=>{
-                                  return(
-                                    <option key={cat.id} value={cat.id}>{cat.nome}</option>
-                                  )
-                                }))}
-                              </select>
+                            <div className="col-40">
+                              <button type="submit" className="btn btn-block green-button"><FaSave/> Salvar</button>
                             </div>
-                          </div>
-                          <input type="file" onChange={handleImage} id="thumbnail"/>    
-                          <button type="submit" className="btn btn-block green-button"><FaSave/> Salvar</button>
+                            <div className="col-30">
+                            </div>
+                          </div>     
+                          
                       </form>
                       
                     </div>
