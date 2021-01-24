@@ -154,7 +154,7 @@ export default function ProductRegister(){
                             <div className="col-30">
                             </div>
                             <div className="col-40">
-                              <button type="submit" className="btn btn-block green-button"><FaSave/> Salvar</button>
+                              <button type="submit" className="btn btn-block btn-lg green-button"><FaSave/> Salvar</button>
                             </div>
                             <div className="col-30">
                             </div>

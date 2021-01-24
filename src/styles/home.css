@@ -170,6 +170,11 @@ table th {
     height: 25px;
 }
 
+.btn-lg{
+    height: 35px;
+    font-size: 15px;
+}
+
 .btn-block{
     width:100%;
 }
