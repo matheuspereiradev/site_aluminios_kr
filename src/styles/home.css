@@ -268,7 +268,7 @@ table th {
 /*conteudo da pagina*/
 .main {
     position: relative;
-    background-color:#FFE6FF;
+    background-color:#fdf6fd;
     height: 92vh;
     color:black;
     display: flex;
@@ -285,7 +285,7 @@ table th {
 }
 .content{
     width:100%;
-    background-color:#FFE6FF;
+    background-color:#fdf6fd;
     margin-top: 20px;
 }
 
