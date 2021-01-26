@@ -66,29 +66,20 @@ export default function ProductRegister(){
       data.append('thumbnail',imagem)*/
       const valor = preco.replace(",",".");
       const dataForm = new FormData();
-      dataForm.append('thumbnail',imagem)
-      if(uuid===''){
-        const data = {
-          "nome": nome,
-          "descricao":descricao,
-          "categoria":categoria,
-          "preco":valor,
-        }
+      dataForm.append('thumbnail',imagem);
+      dataForm.append('nome',nome)
+      dataForm.append('categoria',categoria);
+      dataForm.append('preco',valor);
+      dataForm.append('descricao',descricao);
 
-        dataForm.append('data',data);
+      if(uuid===''){
         const res = await api.post('/products/register',dataForm);
         if (res.status === 200){
           alert('cadastrado com sucesso');
         }
       }else{
-        const data = {
-          "nome": nome,
-          "descricao":descricao,
-          "categoria":categoria,
-          "preco":valor,
-          "uuid":uuid,
-        }
-        dataForm.append('data',data);
+        
+        dataForm.append('uuid',uuid);
         const res2 = await api.put('/products/edit',dataForm);
         if (res2.status === 200){
           alert('Editado com sucesso');
